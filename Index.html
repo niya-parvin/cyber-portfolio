@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niya Parvin — Cybersecurity Portfolio</title>
+<meta name="description" content="Niya Parvin — Aspiring cybersecurity professional specializing in SOC operations, threat detection, and SIEM monitoring. Advanced Diploma in Cyber Defense, B.Voc. in Web Technology.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Niya Parvin — Cybersecurity Portfolio">
+<meta property="og:description" content="Aspiring cybersecurity professional specializing in SOC operations, threat detection, and SIEM monitoring.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0F1F">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Niya Parvin",
+  "jobTitle": "Entry-Level Cybersecurity Analyst",
+  "email": "niyaparvin626@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Thrissur", "addressRegion": "Kerala", "addressCountry": "IN" },
+  "sameAs": ["http://www.linkedin.com/in/niya-parvin"],
+  "description": "Aspiring cybersecurity professional with a background in Web Technology and ongoing training in Cyber Defense."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0A0F1F;
+    --bg-2:#111827;
+    --card:rgba(255,255,255,0.035);
+    --card-hover:rgba(255,255,255,0.06);
+    --border:rgba(255,255,255,0.08);
+    --border-strong:rgba(255,255,255,0.16);
+    --text:#F5F7FA;
+    --text-dim:#9AA4B8;
+    --text-faint:#616D82;
+    --blue:#4C8DFF;
+    --cyan:#22D3EE;
+    --purple:#9B7CFA;
+    --success:#4ADE80;
+    --error:#F87171;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --maxw:1180px;
+    --radius:16px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(76,141,255,0.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 20%, rgba(155,124,250,0.08), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:rgba(76,141,255,0.35); color:#fff; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  img{ max-width:100%; display:block; }
+
+  :focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; border-radius:3px; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+  section{ position:relative; padding:130px 0; }
+  .section-head{ max-width:660px; margin-bottom:56px; }
+  .section-head p{ color:var(--text-dim); font-size:16px; margin-top:14px; }
+  .section-title{ font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:600; letter-spacing:-0.01em; }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--cyan); display:flex; align-items:center; gap:10px; margin-bottom:16px;
+  }
+  .eyebrow::before{ content:''; width:16px; height:1px; background:var(--cyan); display:inline-block; }
+
+  .glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+
+  /* ---------------- LOADER ---------------- */
+  #loader{
+    position:fixed; inset:0; z-index:999; background:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity 0.5s ease, visibility 0.5s ease;
+  }
+  #loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+  .loader-box{ width:min(360px,84vw); text-align:center; }
+  .loader-mark{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; color:var(--text-dim); margin-bottom:18px; min-height:16px; }
+  .loader-track{ height:3px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; }
+  .loader-fill{ height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--cyan)); transition:width 1.1s cubic-bezier(.4,.1,.2,1); }
+  .loader-pct{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); margin-top:10px; }
+
+  /* ---------------- NAV ---------------- */
+  .nav-outer{ position:fixed; top:20px; left:0; right:0; z-index:200; display:flex; justify-content:center; padding:0 20px; }
+  nav.glass{
+    display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:100px;
+    max-width:calc(var(--maxw) + 64px); width:100%; justify-content:space-between;
+  }
+  .nav-brand{
+    font-family:var(--font-mono); font-weight:600; font-size:13.5px; padding:8px 14px;
+    display:flex; align-items:center; gap:8px; flex-shrink:0;
+  }
+  .nav-brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--success); box-shadow:0 0 0 3px rgba(74,222,128,0.15); }
+  .nav-links{ display:flex; gap:2px; }
+  .nav-links a{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); padding:9px 14px; border-radius:100px;
+    transition:all 0.2s ease; white-space:nowrap;
+  }
+  .nav-links a:hover{ color:var(--text); background:rgba(255,255,255,0.05); }
+  .nav-links a.active{ color:var(--bg); background:linear-gradient(120deg,var(--cyan),var(--blue)); }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--text); width:38px; height:38px; cursor:pointer; }
+
+  @media (max-width:980px){
+    .nav-links{
+      position:fixed; top:78px; left:20px; right:20px;
+      flex-direction:column; align-items:stretch; padding:10px; gap:4px;
+      background:rgba(10,15,31,0.96); border:1px solid var(--border); border-radius:18px;
+      backdrop-filter:blur(20px);
+      transform:translateY(-14px); opacity:0; visibility:hidden; transition:all 0.25s ease;
+    }
+    .nav-links.open{ transform:translateY(0); opacity:1; visibility:visible; }
+    .nav-links a{ padding:12px 16px; border-radius:10px; }
+    .nav-links a.active{ border-radius:10px; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ---------------- BUTTONS ---------------- */
+  .btn{
+    font-family:var(--font-mono); font-size:13.5px; letter-spacing:0.01em; padding:13px 22px;
+    border-radius:10px; display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+    border:1px solid transparent; transition:all 0.2s ease;
+  }
+  .btn-primary{ background:linear-gradient(120deg,var(--blue),var(--cyan)); color:#04101f; font-weight:600; }
+  .btn-primary:hover{ filter:brightness(1.08); transform:translateY(-2px); }
+  .btn-ghost{ border-color:var(--border-strong); background:rgba(255,255,255,0.02); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px); }
+  .btn svg{ width:15px; height:15px; }
+
+  /* ---------------- REVEAL ---------------- */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------------- HERO ---------------- */
+  #home{ padding-top:190px; padding-bottom:110px; overflow:hidden; }
+  #hero-canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:0.55; z-index:0; }
+  .hero-grid{ position:relative; z-index:1; display:grid; grid-template-columns:1.25fr 0.9fr; gap:56px; align-items:center; }
+  .hero-eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); letter-spacing:0.1em; text-transform:uppercase;
+    display:flex; align-items:center; gap:9px; margin-bottom:24px;
+  }
+  .hero-eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--success); }
+  h1.hero-name{
+    font-family:var(--font-display); font-size:clamp(42px,6.4vw,72px); line-height:1.02; letter-spacing:-0.02em; font-weight:700;
+    background:linear-gradient(120deg,#fff 35%, var(--cyan) 100%); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-roles{ font-family:var(--font-mono); font-size:clamp(13.5px,1.8vw,16px); color:var(--text-dim); margin-top:18px; letter-spacing:0.02em; }
+  .hero-roles span{ color:var(--cyan); }
+  .hero-headline{ font-size:17px; color:var(--text-dim); max-width:520px; margin-top:24px; }
+  .hero-cta{ display:flex; gap:14px; margin-top:38px; flex-wrap:wrap; }
+  .hero-social{ display:flex; gap:14px; margin-top:26px; }
+  .hero-social a{
+    width:40px; height:40px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    color:var(--text-dim); transition:all 0.2s ease;
+  }
+  .hero-social a:hover{ color:var(--cyan); border-color:var(--cyan); transform:translateY(-2px); }
+  .hero-social svg{ width:17px; height:17px; }
+
+  .profile-card{ padding:26px; font-family:var(--font-mono); font-size:13px; position:relative; overflow:hidden; }
+  .profile-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); }
+  .profile-head{ display:flex; align-items:center; gap:10px; padding-bottom:16px; margin-bottom:18px; border-bottom:1px solid var(--border); }
+  .profile-avatar{
+    width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--purple));
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; color:#fff; font-size:16px; flex-shrink:0;
+  }
+  .profile-headtext .name{ font-family:var(--font-body); font-weight:600; font-size:14.5px; color:var(--text); }
+  .profile-headtext .role{ font-size:11.5px; color:var(--text-faint); margin-top:2px; }
+  .profile-row{ display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px dashed var(--border); }
+  .profile-row:last-child{ border-bottom:none; }
+  .profile-row .k{ color:var(--text-faint); flex-shrink:0; }
+  .profile-row .v{ color:var(--text); text-align:right; }
+  .status-pill{ display:inline-flex; align-items:center; gap:6px; color:var(--success); }
+  .status-pill .dot{ width:6px; height:6px; border-radius:50%; background:var(--success); }
+  .focus-chips{ display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+  .focus-chips span{ background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25); color:var(--cyan); padding:3px 8px; border-radius:5px; font-size:10.5px; }
+
+  /* ---------------- ABOUT ---------------- */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  .about-text p{ color:var(--text-dim); font-size:16.5px; margin-bottom:18px; }
+  .about-text strong{ color:var(--text); font-weight:600; }
+  .about-facts{ display:flex; flex-direction:column; gap:0; }
+  .fact-row{ display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--border); }
+  .fact-row:first-child{ padding-top:0; }
+  .fact-icon{ width:38px; height:38px; border-radius:9px; background:rgba(76,141,255,0.1); border:1px solid rgba(76,141,255,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .fact-icon svg{ width:18px; height:18px; color:var(--blue); }
+  .fact-text h4{ font-family:var(--font-display); font-size:15px; margin-bottom:4px; }
+  .fact-text p{ font-size:13.5px; color:var(--text-dim); }
+
+  /* ---------------- RESULTS ---------------- */
+  .results-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .result-card{ padding:28px 22px; text-align:center; transition:transform 0.25s ease, border-color 0.25s ease; }
+  .result-card:hover{ transform:translateY(-4px); border-color:var(--border-strong); }
+  .result-icon{ width:36px; height:36px; margin:0 auto 16px; color:var(--cyan); }
+  .result-icon svg{ width:100%; height:100%; }
+  .result-num{ font-family:var(--font-mono); font-size:clamp(26px,3.4vw,36px); font-weight:700; color:var(--text); }
+  .result-label{ font-family:var(--font-body); font-size:13px; color:var(--text-dim); margin-top:8px; }
+
+  /* ---------------- WHY HIRE ME ---------------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .why-card{ padding:26px; transition:all 0.25s ease; }
+  .why-card:hover{ transform:translateY(-4px); border-color:rgba(76,141,255,0.4); box-shadow:0 16px 34px -18px rgba(76,141,255,0.25); }
+  .why-icon{ width:40px; height:40px; border-radius:10px; background:rgba(155,124,250,0.1); border:1px solid rgba(155,124,250,0.28); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+  .why-icon svg{ width:19px; height:19px; color:var(--purple); }
+  .why-card h3{ font-family:var(--font-display); font-size:16.5px; margin-bottom:8px; }
+  .why-card p{ font-size:13.8px; color:var(--text-dim); }
+
+  /* ---------------- SKILLS ---------------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .skill-card{ padding:24px; transition:all 0.25s ease; }
+  .skill-card:hover{ border-color:rgba(34,211,238,0.4); transform:translateY(-3px); }
+  .skill-card h3{ font-family:var(--font-display); font-size:15.5px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .skill-card h3 svg{ width:18px; height:18px; color:var(--cyan); }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .skill-tag{ font-family:var(--font-mono); font-size:11.8px; color:var(--text-dim); background:rgba(255,255,255,0.04); border:1px solid var(--border); padding:6px 11px; border-radius:7px; transition:all 0.2s ease; }
+  .skill-tag:hover{ color:var(--cyan); border-color:var(--cyan); }
+
+  /* ---------------- PROJECTS / CASE FILES ---------------- */
+  .case-file{ padding:0; overflow:hidden; margin-bottom:26px; }
+  .case-head{ display:flex; align-items:center; justify-content:space-between; padding:22px 28px; border-bottom:1px solid var(--border); flex-wrap:wrap; gap:12px; }
+  .case-id{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.12em; color:var(--text-faint); }
+  .case-status{ font-family:var(--font-mono); font-size:11px; padding:5px 11px; border-radius:100px; display:inline-flex; align-items:center; gap:6px; }
+  .case-status.done{ color:var(--success); background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.25); }
+  .case-status .dot{ width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .case-body{ padding:28px; }
+  .case-body h3{ font-family:var(--font-display); font-size:22px; margin-bottom:22px; }
+  .case-cols{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-bottom:22px; }
+  .case-block .lbl{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+  .case-block p, .case-block li{ font-size:14.5px; color:var(--text-dim); }
+  .case-block ul{ display:flex; flex-direction:column; gap:6px; }
+  .case-block li::before{ content:'— '; color:var(--text-faint); }
+  .case-tech{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  .case-footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:20px; border-top:1px solid var(--border); }
+  .case-result{ font-size:14.5px; color:var(--text); }
+  .case-result strong{ color:var(--success); }
+  .case-links{ display:flex; gap:12px; }
+
+  /* ---------------- EXPERIENCE ---------------- */
+  .exp-list{ display:flex; flex-direction:column; gap:20px; }
+  .exp-card{ padding:26px 28px; display:grid; grid-template-columns:auto 1fr; gap:22px; }
+  .exp-logo{
+    width:52px; height:52px; border-radius:12px; background:linear-gradient(135deg,rgba(76,141,255,0.18),rgba(155,124,250,0.18));
+    border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:700; font-size:17px; color:var(--cyan); flex-shrink:0;
+  }
+  .exp-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+  .exp-top h3{ font-family:var(--font-display); font-size:17px; }
+  .exp-top .duration{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); }
+  .exp-role{ font-size:13.5px; color:var(--cyan); font-family:var(--font-mono); margin-bottom:12px; }
+  .exp-card ul{ display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+  .exp-card li{ font-size:14px; color:var(--text-dim); }
+  .exp-card li::before{ content:'✓ '; color:var(--success); }
+  .exp-tech{ display:flex; flex-wrap:wrap; gap:7px; }
+
+  /* ---------------- EDUCATION TIMELINE ---------------- */
+  .timeline{ position:relative; padding-left:36px; }
+  .timeline::before{ content:''; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--border-strong); }
+  .tl-item{ position:relative; padding-bottom:34px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-dot{ position:absolute; left:-36px; top:4px; width:13px; height:13px; border-radius:50%; background:var(--bg); border:2px solid var(--border-strong); }
+  .tl-item.active .tl-dot{ border-color:var(--cyan); background:var(--cyan); box-shadow:0 0 0 4px rgba(34,211,238,0.18); }
+  .tl-item.complete .tl-dot{ border-color:var(--success); background:var(--success); box-shadow:0 0 0 4px rgba(74,222,128,0.15); }
+  .tl-card{ padding:22px 24px; }
+  .tl-year{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.08em; color:var(--text-faint); text-transform:uppercase; margin-bottom:8px; }
+  .tl-item.active .tl-year{ color:var(--cyan); }
+  .tl-card h3{ font-family:var(--font-display); font-size:17px; margin-bottom:4px; }
+  .tl-card .inst{ font-size:13.5px; color:var(--text-dim); margin-bottom:10px; }
+  .tl-card .meta{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); }
+  .badge{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px; padding:4px 10px; border-radius:100px; margin-top:10px; }
+  .badge.progress{ color:var(--cyan); background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25); }
+  .badge.complete{ color:var(--success); background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.25); }
+
+  /* ---------------- JOURNEY ---------------- */
+  .journey-track{ display:flex; flex-direction:column; align-items:center; gap:0; max-width:520px; margin:0 auto; }
+  .journey-step{ display:flex; align-items:center; gap:18px; width:100%; padding:16px 22px; }
+  .journey-num{ width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:13px; color:var(--text-dim); border:1px solid var(--border-strong); flex-shrink:0; background:var(--bg-2); }
+  .journey-step.now .journey-num{ color:var(--bg); background:linear-gradient(120deg,var(--cyan),var(--blue)); border-color:transparent; }
+  .journey-label{ font-family:var(--font-display); font-size:16px; }
+  .journey-step.now .journey-label{ color:var(--cyan); }
+  .journey-sub{ font-size:12.5px; color:var(--text-faint); margin-top:2px; }
+  .journey-arrow{ color:var(--text-faint); font-size:14px; margin:2px 0; }
+
+  /* ---------------- LEARNING DASHBOARD ---------------- */
+  .dash-card{ padding:0; overflow:hidden; }
+  .dash-head{ padding:22px 28px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  .dash-head h3{ font-family:var(--font-display); font-size:18px; }
+  .dash-grid{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .dash-cell{ padding:26px 28px; border-right:1px solid var(--border); border-top:1px solid var(--border); }
+  .dash-cell:nth-child(4n){ border-right:none; }
+  .dash-cell .lbl{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px; }
+  .dash-cell .val{ font-size:14.5px; color:var(--text); }
+  .dash-cell .val.mono{ font-family:var(--font-mono); font-size:13.5px; }
+  .dash-cell ul{ display:flex; flex-direction:column; gap:5px; }
+  .dash-cell li{ font-size:13.5px; color:var(--text-dim); }
+  .dash-cell li::before{ content:'▸ '; color:var(--cyan); }
+
+  /* ---------------- CONTACT ---------------- */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+  .contact-left p{ color:var(--text-dim); font-size:16px; margin:18px 0 30px; max-width:440px; }
+  .contact-channels{ display:flex; flex-wrap:wrap; gap:12px; }
+  .contact-channel{ display:flex; align-items:center; gap:10px; padding:13px 18px; }
+  .contact-channel svg{ width:16px; height:16px; color:var(--cyan); }
+  .contact-channel span{ font-family:var(--font-mono); font-size:12.5px; }
+
+  .form-card{ padding:28px; }
+  .form-group{ margin-bottom:18px; }
+  .form-group label{ display:block; font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px; }
+  .form-group input, .form-group textarea{
+    width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:9px;
+    padding:12px 14px; color:var(--text); font-family:var(--font-body); font-size:14px; transition:border-color 0.2s ease;
+  }
+  .form-group input:focus, .form-group textarea:focus{ border-color:var(--cyan); outline:none; }
+  .form-group textarea{ resize:vertical; min-height:110px; }
+  .form-note{ font-size:12px; color:var(--text-faint); margin-top:14px; }
+
+  footer{ padding:40px 0; text-align:center; border-top:1px solid var(--border); }
+  footer p{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); }
+
+  @media (max-width:980px){
+    .hero-grid, .about-grid, .contact-grid{ grid-template-columns:1fr; }
+    .results-grid{ grid-template-columns:repeat(2,1fr); }
+    .why-grid, .skills-grid{ grid-template-columns:repeat(2,1fr); }
+    .case-cols{ grid-template-columns:1fr; }
+    .exp-card{ grid-template-columns:1fr; }
+    .dash-grid{ grid-template-columns:repeat(2,1fr); }
+    .dash-cell:nth-child(4n){ border-right:1px solid var(--border); }
+    .dash-cell:nth-child(2n){ border-right:none; }
+    section{ padding:90px 0; }
+  }
+  @media (max-width:600px){
+    .results-grid, .why-grid, .skills-grid, .dash-grid{ grid-template-columns:1fr; }
+    .dash-cell{ border-right:none !important; }
+    .hero-cta{ flex-direction:column; align-items:stretch; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-box">
+    <div class="loader-mark" id="loaderMsg">Loading Analyst Profile...</div>
+    <div class="loader-track"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<div class="nav-outer">
+  <nav class="glass">
+    <div class="nav-brand"><span class="dot"></span> NIYA PARVIN</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active" data-id="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-id="about">About</a></li>
+      <li><a href="#results" class="nav-link" data-id="results">Results</a></li>
+      <li><a href="#skills" class="nav-link" data-id="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-id="projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-id="experience">Experience</a></li>
+      <li><a href="#education" class="nav-link" data-id="education">Education</a></li>
+      <li><a href="#journey" class="nav-link" data-id="journey">Journey</a></li>
+      <li><a href="#contact" class="nav-link" data-id="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="hero-eyebrow"><span class="dot"></span> AVAILABLE FOR OPPORTUNITIES</div>
+      <h1 class="hero-name">NIYA PARVIN</h1>
+      <div class="hero-roles">Cybersecurity Analyst <span>/</span> SOC Analyst Aspirant <span>/</span> Cyber Defense Enthusiast</div>
+      <p class="hero-headline">Protecting digital systems through continuous learning, practical cybersecurity experience, and analytical problem solving.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+        <!-- <a href="#" id="resumeBtnHero" class="btn btn-ghost">View Resume</a> -->
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/niya-parvin" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+        </a>
+        <a href="http://www.linkedin.com/in/niya-parvin" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 11 23 14.4V21h-4v-5.85c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21h-4V9Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal in profile-card glass">
+      <div class="profile-head">
+        <div class="profile-avatar">NP</div>
+        <div class="profile-headtext">
+          <div class="name">Niya Parvin</div>
+          <div class="role">Entry-Level Cybersecurity Analyst</div>
+        </div>
+      </div>
+      <div class="profile-row"><span class="k">STATUS</span><span class="v"><span class="status-pill"><span class="dot"></span>Available</span></span></div>
+      <div class="profile-row"><span class="k">LOCATION</span><span class="v">Thrissur, Kerala</span></div>
+      <div class="profile-row"><span class="k">CURRENT FOCUS</span><span class="v"><div class="focus-chips"><span>Cyber Defense</span><span>SOC</span><span>SIEM</span></div></span></div>
+      <div class="profile-row"><span class="k">MISSION</span><span class="v">Developing expertise in Security Operations, Threat Detection, and Cyber Defense.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow">About</div>
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="about-text" style="margin-top:24px;">
+          <p>Niya Parvin is an <strong>aspiring cybersecurity Analyst</strong> with a background in web technology and ongoing training in cyber defense at Redteam Hacker Academy, Thrissur.</p>
+          <p>She works hands-on with <strong>Python, Nmap, Wireshark, and SIEM monitoring</strong>, applying that toolkit to real tasks — vulnerability assessment, packet analysis, and log-based threat detection — rather than treating them as theory.</p>
+          <p>Her background in web development means she also understands how the systems she'll be defending are actually built, giving her an <strong>analytical, detail-oriented approach</strong> to security problems and a demonstrated ability to learn quickly and adapt to new tools and environments.</p>
+        </div>
+      </div>
+      <div class="reveal about-facts">
+        <div class="fact-row">
+          <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg></div>
+          <div class="fact-text"><h4>Cybersecurity-focused</h4><p>Currently pursuing an Advanced Diploma in Cyber Defense.</p></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div class="fact-text"><h4>Continuous learner</h4><p>Actively building skills through labs, certificates, and self-study every week.</p></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
+          <div class="fact-text"><h4>Hands-on experience</h4><p>Two internships and two shipped technical projects, not just coursework.</p></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg></div>
+          <div class="fact-text"><h4>Analytical &amp; adaptable</h4><p>Comfortable moving between web development and security tooling.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Impact &amp; Results</div>
+      <h2 class="section-title">Progress, measured.</h2>
+      <p>Concrete numbers from real coursework, labs, and internships.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg></div>
+        <div class="result-num" data-count="2">0</div>
+        <div class="result-label">Professional Internships</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg></div>
+        <div class="result-num" data-count="2">0</div>
+        <div class="result-label">Technical Projects</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="result-num" data-count="1">0</div>
+        <div class="result-label">SIEM Monitoring Lab</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v4l-6 5v6l-4 2v-8L4 8Z"/></svg></div>
+        <div class="result-num" data-count="1">0</div>
+        <div class="result-label">QR-Based Museum System</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 3 7v5c0 5 3.8 8.4 9 9 5.2-.6 9-4 9-9V7l-9-4Z"/></svg></div>
+        <div class="result-num" style="font-size:clamp(20px,2.6vw,26px);">Advanced Diploma</div>
+        <div class="result-label">Cyber Defense — In Progress</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+        <div class="result-num" style="font-size:clamp(20px,2.6vw,26px);">B.Voc.</div>
+        <div class="result-label">Web Technology — Completed</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10M18 20V4M6 20v-6"/></svg></div>
+        <div class="result-num" data-count="7.38" data-decimal="true">0</div>
+        <div class="result-label">CGPA (First Class)</div>
+      </div>
+      <div class="result-card glass reveal">
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 17l-6.2 3.4 1.6-6.8L2.2 9l6.9-.7Z"/></svg></div>
+        <div class="result-num" style="font-size:clamp(24px,3vw,32px);">A+</div>
+        <div class="result-label">Internship Performance (Distinction)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Hire Me</div>
+      <h2 class="section-title">What I bring to a security team.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+        <h3>Hands-on Cybersecurity Labs</h3>
+        <p>Practical experience with vulnerability assessment and packet analysis, not just theory.</p>
+      </div>
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>SIEM Monitoring Experience</h3>
+        <p>Built custom Splunk searches and detection logic to surface suspicious activity.</p>
+      </div>
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg></div>
+        <h3>Security-Focused Problem Solving</h3>
+        <p>Approaches challenges methodically — enumerate, analyze, then act.</p>
+      </div>
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20V10M18 20V4M6 20v-6"/></svg></div>
+        <h3>Continuous Learning</h3>
+        <p>Currently completing an Advanced Diploma in Cyber Defense while building labs weekly.</p>
+      </div>
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Attention to Detail</h3>
+        <p>A First Class academic record and an A+ internship performance reflect consistent rigor.</p>
+      </div>
+      <div class="why-card glass reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+        <h3>Strong Collaboration</h3>
+        <p>Worked alongside senior mentors in two internships and coordinated college TechFest events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Technical Skills</div>
+      <h2 class="section-title">Tools and technologies I work with.</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card glass reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg> Security</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Network Security</span>
+          <span class="skill-tag">Threat Detection</span>
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">Vulnerability Assessment</span>
+          <span class="skill-tag">Incident Response Fundamentals</span>
+        </div>
+      </div>
+      <div class="skill-card glass reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg> Networking</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">DNS</span>
+          <span class="skill-tag">HTTP</span>
+          <span class="skill-tag">Routing</span>
+          <span class="skill-tag">Switching</span>
+        </div>
+      </div>
+      <div class="skill-card glass reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg> Operating Systems</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Windows</span>
+        </div>
+      </div>
+      <div class="skill-card glass reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg> Programming</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-card glass reveal" style="grid-column:span 2;">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94Z"/></svg> Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag">Kali Linux</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">VirtualBox</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / CASE FILES -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Featured Projects</div>
+      <h2 class="section-title">Case files.</h2>
+      <p>Two projects, documented the way a security team documents its work.</p>
+    </div>
+
+    <div class="case-file glass reveal">
+      <div class="case-head">
+        <span class="case-id">CASE FILE 001 — WEB SECURITY &amp; ACCESSIBILITY</span>
+        <span class="case-status done"><span class="dot"></span>In Deployment</span>
+      </div>
+      <div class="case-body">
+        <h3>Interactive Museum QR System</h3>
+        <div class="case-cols">
+          <div class="case-block">
+            <div class="lbl">Problem</div>
+            <p>Visitors at the State Museum, Thrissur needed multilingual, self-serve access to exhibit information.</p>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Objective</div>
+            <p>Give every exhibit a QR code that opens bilingual information instantly, on any device.</p>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Solution</div>
+            <p>Engineered a bilingual exhibit information system with QR-code access, an admin panel, and event registration.</p>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Responsibilities</div>
+            <ul>
+              <li>Designed responsive front-end interfaces</li>
+              <li>Assisted with database integration</li>
+              <li>Ensured cross-device performance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lbl" style="margin-bottom:10px;">Technologies</div>
+        <div class="case-tech">
+          <span class="skill-tag">Python</span><span class="skill-tag">Django</span><span class="skill-tag">MySQL</span>
+          <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">Bootstrap</span>
+        </div>
+        <div class="case-footer">
+          <div class="case-result">Result: <strong>Improved digital accessibility</strong> for museum visitors across languages.</div>
+          <div class="case-links">
+            <a href="#" class="btn btn-ghost" style="padding:9px 16px;font-size:12.5px;">GitHub</a>
+            <a href="#" class="btn btn-ghost" style="padding:9px 16px;font-size:12.5px;">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-file glass reveal">
+      <div class="case-head">
+        <span class="case-id">CASE FILE 002 — DETECTION &amp; MONITORING</span>
+        <span class="case-status done"><span class="dot"></span>Completed</span>
+      </div>
+      <div class="case-body">
+        <h3>SIEM Log Monitoring &amp; Detection</h3>
+        <div class="case-cols">
+          <div class="case-block">
+            <div class="lbl">Objective</div>
+            <p>Monitor a lab environment for suspicious activity using centralized log analysis.</p>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Solution</div>
+            <p>Deployed Splunk to ingest and monitor logs from Windows and network sources, then built custom searches and detection logic.</p>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Detection Rules</div>
+            <ul>
+              <li>Failed login attempts</li>
+              <li>Anomalous traffic patterns</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <div class="lbl">Lessons Learned</div>
+            <p>Effective detection depends as much on well-scoped searches as on the logs themselves.</p>
+          </div>
+        </div>
+        <div class="lbl" style="margin-bottom:10px;">Technologies</div>
+        <div class="case-tech">
+          <span class="skill-tag">Splunk</span><span class="skill-tag">Windows Logs</span><span class="skill-tag">Network Logs</span>
+        </div>
+        <div class="case-footer">
+          <div class="case-result">Result: <strong>Practical SIEM detection workflows</strong> built end-to-end in a lab environment.</div>
+          <div class="case-links">
+            <a href="#" class="btn btn-ghost" style="padding:9px 16px;font-size:12.5px;">Writeup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experience</div>
+      <h2 class="section-title">Where I've applied this in practice.</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card glass reveal">
+        <div class="exp-logo">TM</div>
+        <div>
+          <div class="exp-top"><h3>Techmindz (Powered by Ndimensionz)</h3><span class="duration">Apr 2023 – May 2023 · Kochi</span></div>
+          <div class="exp-role">Intern</div>
+          <ul>
+            <li>Gained hands-on experience in front-end web development, building responsive layouts</li>
+            <li>Collaborated with senior mentors to apply real-world development practices and coding standards</li>
+          </ul>
+          <div class="exp-tech"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">Bootstrap</span></div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal">
+        <div class="exp-logo">OZ</div>
+        <div>
+          <div class="exp-top"><h3>Ociuz Skills Academy</h3><span class="duration">Nov 2024 – Feb 2025 · Thrissur</span></div>
+          <div class="exp-role">Web Development Intern</div>
+          <ul>
+            <li>Developed a Museum Management &amp; QR-Based Exhibit Information System for State Museum, Thrissur</li>
+            <li>Assisted in database integration and front-end development</li>
+          </ul>
+          <div class="exp-tech"><span class="skill-tag">Python</span><span class="skill-tag">Django</span><span class="skill-tag">MySQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Education &amp; Certifications</div>
+      <h2 class="section-title">Academic foundation.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-year">June 2025 — Present</div>
+        <div class="tl-card glass">
+          <h3>Advanced Diploma in Cyber Defense</h3>
+          <div class="inst">Redteam Hacker Academy, Thrissur</div>
+          <div class="meta">Focus: Network Security · SIEM · Threat Detection · Linux</div>
+          <span class="badge progress">● In Progress</span>
+        </div>
+      </div>
+      <div class="tl-item complete">
+        <div class="tl-dot"></div>
+        <div class="tl-year">June 2022 — April 2025</div>
+        <div class="tl-card glass">
+          <h3>B.Voc. in Web Technology</h3>
+          <div class="inst">University of Calicut — Vimala College (Autonomous), Thrissur</div>
+          <div class="meta">CGPA 7.38 · First Class</div>
+          <span class="badge complete">✓ Completed</span>
+        </div>
+      </div>
+      <!-- <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Planned</div>
+        <div class="tl-card glass">
+          <h3>CompTIA Security+</h3>
+          <div class="inst">Blue Team Labs Certification</div>
+          <div class="meta">Next milestone on the roadmap</div>
+          <span class="badge progress">○ Upcoming</span>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Career Journey</div>
+      <h2 class="section-title">From web technology to cyber defense.</h2>
+    </div>
+    <div class="journey-track">
+      <div class="journey-step glass reveal"><div class="journey-num">1</div><div><div class="journey-label">Web Technology</div><div class="journey-sub">B.Voc. foundation</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step glass reveal"><div class="journey-num">2</div><div><div class="journey-label">Frontend Development</div><div class="journey-sub">HTML, CSS, Bootstrap</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step glass reveal"><div class="journey-num">3</div><div><div class="journey-label">Internships</div><div class="journey-sub">Techmindz &amp; Ociuz</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step glass reveal"><div class="journey-num">4</div><div><div class="journey-label">Cyber Defense</div><div class="journey-sub">Advanced Diploma, Redteam Hacker Academy</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step glass reveal"><div class="journey-num">5</div><div><div class="journey-label">SIEM Monitoring</div><div class="journey-sub">Splunk detection labs</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step glass reveal"><div class="journey-num">6</div><div><div class="journey-label">Security Labs</div><div class="journey-sub">VulnHub &amp; hands-on practice</div></div></div>
+      <div class="journey-arrow">↓</div>
+      <div class="journey-step now glass reveal"><div class="journey-num">7</div><div><div class="journey-label">Future SOC Analyst</div><div class="journey-sub">The role I'm working toward</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING DASHBOARD -->
+<!-- <section id="learning">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Current Learning Dashboard</div>
+      <h2 class="section-title">What I'm working on right now.</h2>
+    </div>
+    <div class="dash-card glass reveal">
+      <div class="dash-head">
+        <h3>Current Mission: Advanced Diploma in Cyber Defense</h3>
+        <span class="badge progress">● In Progress</span>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-cell">
+          <div class="lbl">Current Focus</div>
+          <ul>
+            <li>Blue Team</li>
+            <li>SIEM</li>
+            <li>Threat Detection</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Latest Achievement</div>
+          <div class="val">SIEM Log Monitoring &amp; Detection Lab</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Next Goal</div>
+          <ul>
+            <li>SOC Analyst Position</li>
+            <li>CompTIA Security+</li>
+            <li>Blue Team Labs</li>
+          </ul>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Status</div>
+          <div class="val mono" id="learningClock">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal contact-left">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">Let's Secure the Future Together</h2>
+        <p>I am actively seeking opportunities where I can contribute my cybersecurity knowledge while continuing to learn, solve security challenges, and protect modern digital environments.</p>
+        <div class="contact-channels">
+          <!-- <a href="#" id="resumeBtnContact" class="contact-channel glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg><span>Resume</span></a> -->
+          <a href="http://www.linkedin.com/in/niya-parvin" target="_blank" rel="noopener" class="contact-channel glass"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 11 23 14.4V21h-4v-5.85c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21h-4V9Z"/></svg><span>LinkedIn</span></a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="contact-channel glass"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg><span>GitHub</span></a>
+          <a href="mailto:niyaparvin626@gmail.com" class="contact-channel glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>niyaparvin626@gmail.com</span></a>
+        </div>
+      </div>
+      <form class="form-card glass reveal" id="contactForm">
+        <div class="form-group"><label for="cf-name">Name</label><input id="cf-name" type="text" required></div>
+        <div class="form-group"><label for="cf-email">Email</label><input id="cf-email" type="email" required></div>
+        <div class="form-group"><label for="cf-message">Message</label><textarea id="cf-message" required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+        <p class="form-note">Sending opens your email app with this message pre-filled, addressed to niyaparvin626@gmail.com.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Niya Parvin. Built with intention — every section here is backed by real work.</p>
+</footer>
+
+<script>
+/* ---------------- LOADER ---------------- */
+(function(){
+  const fill = document.getElementById('loaderFill');
+  const pctEl = document.getElementById('loaderPct');
+  const msgEl = document.getElementById('loaderMsg');
+  const loader = document.getElementById('loader');
+  const messages = ['Loading Analyst Profile...', 'Threat Intelligence Updated', 'Portfolio Ready'];
+  let mi = 0;
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(()=>{ fill.style.width = '100%'; });
+  let pct = 0;
+  const iv = setInterval(()=>{
+    pct += Math.ceil(Math.random()*22);
+    if(pct >= 100){ pct = 100; clearInterval(iv); }
+    pctEl.textContent = pct + '%';
+  }, 90);
+  const msgIv = setInterval(()=>{
+    mi++;
+    if(mi < messages.length){ msgEl.textContent = messages[mi]; }
+    else { clearInterval(msgIv); }
+  }, 550);
+  setTimeout(()=>{
+    loader.classList.add('hide');
+    document.body.style.overflow = 'auto';
+  }, 1700);
+})();
+
+/* ---------------- MOBILE NAV ---------------- */
+document.getElementById('navToggle').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-link').forEach(a=>{
+  a.addEventListener('click', ()=> document.getElementById('navLinks').classList.remove('open'));
+});
+
+/* ---------------- SCROLL SPY ---------------- */
+const sections = ['home','about','results','skills','projects','experience','education','journey','contact']
+  .map(id => document.getElementById(id)).filter(Boolean);
+const navLinkMap = {};
+document.querySelectorAll('.nav-link').forEach(a => navLinkMap[a.dataset.id] = a);
+
+const spyIo = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      Object.values(navLinkMap).forEach(a=> a.classList.remove('active'));
+      const link = navLinkMap[entry.target.id];
+      if(link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+sections.forEach(s => spyIo.observe(s));
+
+/* ---------------- REVEAL ON SCROLL ---------------- */
+const revealEls = document.querySelectorAll('.reveal:not(.in)');
+const revealIo = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add('in'); revealIo.unobserve(entry.target); }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealIo.observe(el));
+
+/* ---------------- COUNT UP ---------------- */
+const counters = document.querySelectorAll('[data-count]');
+const countIo = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const isDecimal = el.dataset.decimal === 'true';
+      const target = parseFloat(el.dataset.count);
+      let cur = 0;
+      const steps = 40;
+      const inc = target / steps;
+      let n = 0;
+      const iv = setInterval(()=>{
+        n++;
+        cur += inc;
+        if(n >= steps){ cur = target; clearInterval(iv); }
+        el.textContent = isDecimal ? cur.toFixed(2) : Math.round(cur);
+      }, 30);
+      countIo.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => countIo.observe(c));
+
+/* ---------------- RESUME BUTTONS ---------------- */
+function handleResumeClick(e){
+  e.preventDefault();
+  // Replace 'resume.pdf' with the real résumé file path before publishing.
+  const link = document.createElement('a');
+  link.href = 'resume.pdf';
+  link.download = 'Niya_Parvin_Resume.pdf';
+  link.click();
+}
+['resumeBtnHero','resumeBtnContact'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('click', handleResumeClick);
+});
+
+/* ---------------- CONTACT FORM ---------------- */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value;
+  const email = document.getElementById('cf-email').value;
+  const message = document.getElementById('cf-message').value;
+  const subject = encodeURIComponent('Portfolio Contact — ' + name);
+  const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+  window.location.href = 'mailto:niyaparvin626@gmail.com?subject=' + subject + '&body=' + body;
+});
+
+/* ---------------- LEARNING DASHBOARD CLOCK ---------------- */
+function tickLearning(){
+  const el = document.getElementById('learningClock');
+  if(!el) return;
+  el.textContent = 'ACTIVE · ' + new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+}
+tickLearning(); setInterval(tickLearning, 60000);
+
+/* ---------------- HERO NETWORK CANVAS ---------------- */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w, h, nodes;
+
+  function resize(){
+    const hero = document.getElementById('home');
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+  function initNodes(){
+    const count = Math.max(16, Math.min(38, Math.floor((w*h)/42000)));
+    nodes = Array.from({length: count}, ()=>({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-0.5)*0.14, vy: (Math.random()-0.5)*0.14
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    nodes.forEach(n=>{
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > w) n.vx *= -1;
+      if(n.y < 0 || n.y > h) n.vy *= -1;
+    });
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a = nodes[i], b = nodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist < 140){
+          ctx.strokeStyle = 'rgba(76,141,255,' + (0.10*(1-dist/140)) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n=>{
+      ctx.beginPath(); ctx.arc(n.x,n.y,1.6,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(34,211,238,0.45)'; ctx.fill();
+    });
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  resize(); initNodes();
+  window.addEventListener('resize', ()=>{ resize(); initNodes(); });
+  draw();
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
