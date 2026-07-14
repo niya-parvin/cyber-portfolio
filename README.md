@@ -1,8 +1,8 @@
 # Niya Parvin — Cybersecurity Portfolio
 
-Live, single-file portfolio web app (HTML/CSS/JS) built in **`Index.html`**.
+Live, single-file portfolio web app (HTML/CSS/JS) built in **`index.html`**.
 
-> Designed for recruiters: fast loading, strong section structure, and clear cybersecurity focus (SOC, SIEM monitoring, threat detection), with projects and experience documented in a “case file” style.
+> fast loading, strong section structure, and clear cybersecurity focus (SOC, SIEM monitoring, threat detection), with projects and experience documented in a “case file” style.
 
 ---
 
@@ -10,9 +10,9 @@ Live, single-file portfolio web app (HTML/CSS/JS) built in **`Index.html`**.
 
 Open the file in your browser:
 
-- **`Index.html`**
+- **`index.html`**
 
-If you deploy to GitHub Pages or another static host, you can use `Index.html` as the entry point.
+If you deploy to GitHub Pages or another static host, you can use `index.html` as the entry point.
 
 ---
 
@@ -21,7 +21,7 @@ If you deploy to GitHub Pages or another static host, you can use `Index.html` a
 Because this is a single-file app, there is no build step.
 
 ### Option A (recommended): Open locally
-1. Double-click **`Index.html`**
+1. Double-click **`index.html`**
 2. Or open it in your browser via your file explorer
 
 ### Option B: Serve via a simple local server (optional)
@@ -43,7 +43,7 @@ Then open:
 
 This repository contains a single HTML file:
 
-- **`Index.html`** — All styles and scripts are embedded in this file.
+- **`index.html`** — All styles and scripts are embedded in this file.
 
 ---
 
